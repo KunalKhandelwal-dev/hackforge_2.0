@@ -1,0 +1,26 @@
+/* App-level styles - minimal, most styling is in index.css */
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section scroll margin for sticky header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Utility for hiding scrollbar but keeping functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
