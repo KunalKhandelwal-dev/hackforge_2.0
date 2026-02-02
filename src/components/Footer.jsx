@@ -11,13 +11,13 @@ const footerLinks = {
   resources: [
     { name: 'FAQs', href: '#faqs' },
     { name: 'Code of Conduct', href: '#' },
-    { name: 'Judging Criteria', href: '#' },
+    // { name: 'Judging Criteria', href: '#' },
     { name: 'Past Events', href: '#' },
   ],
   community: [
     { name: 'Team', href: '#team' },
     { name: 'Sponsors', href: '#sponsors' },
-    { name: 'Partners', href: '#' },
+    // { name: 'Partners', href: '#' },
     { name: 'Contact Us', href: 'mailto:hackforge@geetauniversity.edu.in' },
   ],
 };
@@ -73,6 +73,62 @@ export const Footer = ({ onRegisterClick }) => {
       />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
+        {/* CTA — MOVED ABOVE FOOTER CONTENT */}
+  <motion.div
+    className="text-center mb-24"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+  >
+    <h3
+      className="text-2xl md:text-3xl font-extrabold mb-4"
+      style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+    >
+      Ready to Build Something Amazing?
+    </h3>
+    <p className="text-sm mb-6" style={{ color: '#9CA3AF' }}>
+      Join 100+ hackers at HackForge 2.0 | May 2026
+    </p>
+    <motion.button
+      onClick={onRegisterClick}
+      className="px-8 py-4 rounded-full text-base font-semibold"
+      style={{
+        backgroundColor: '#7C3AED',
+        color: '#FFFFFF',
+        boxShadow: '0 0 30px rgba(124, 58, 237, 0.4)',
+      }}
+      whileHover={{
+        scale: 1.05,
+        boxShadow: '0 0 50px rgba(124, 58, 237, 0.6)',
+      }}
+      whileTap={{ scale: 0.98 }}
+    >
+      Register Now
+    </motion.button>
+  </motion.div>
+        <div className="mb-16">
+    <h4
+      className="text-sm uppercase tracking-widest mb-6"
+      style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+    >
+      Find Us
+    </h4>
+    <div
+      className="rounded-xl overflow-hidden h-64"
+      style={{ border: '1px solid rgba(124, 58, 237, 0.2)' }}
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26256.19332660918!2d76.8773228167928!3d29.300602642448634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dc3b5533b6d9f%3A0x1b563db61bcc0195!2sGEETA%20UNIVERSITY%2C%20NAULTHA%2C%20PANIPAT!5e1!3m2!1sen!2sin!4v1769969839896!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(90%)' }}
+        loading="lazy"
+        title="Geeta University Location"
+      />
+    </div>
+  </div>
+
+  
         {/* Main footer content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand column */}
@@ -160,7 +216,7 @@ export const Footer = ({ onRegisterClick }) => {
         </div>
 
         {/* Google Maps */}
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <h4
             className="text-sm uppercase tracking-widest mb-6"
             style={{ color: '#A78BFA' }}
@@ -182,10 +238,10 @@ export const Footer = ({ onRegisterClick }) => {
               data-testid="footer-map"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* CTA */}
-        <motion.div
+        {/* <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -217,7 +273,7 @@ export const Footer = ({ onRegisterClick }) => {
           >
             Register Now
           </motion.button>
-        </motion.div>
+        </motion.div> */}
 
         {/* Social links */}
         <div className="flex justify-center gap-4 mb-12">
@@ -251,17 +307,17 @@ export const Footer = ({ onRegisterClick }) => {
 
         {/* Bottom bar */}
         <div
-          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
-          style={{ borderTop: '1px solid rgba(124, 58, 237, 0.1)' }}
-        >
-          <p className="text-xs" style={{ color: '#6B7280' }}>
-            &copy; {new Date().getFullYear()} HackForge 2.0. All rights reserved.
-          </p>
-          <p className="text-xs" style={{ color: '#6B7280' }}>
-            Made with love by{' '}
-            <span style={{ color: '#7C3AED' }}>KunalK</span>
-          </p>
-        </div>
+  className="pt-8 relative"
+  style={{ borderTop: '1px solid rgba(124, 58, 237, 0.1)' }}
+>
+  <p
+    className="text-xs absolute left-1/2 -translate-x-1/2"
+    style={{ color: '#6B7280' }}
+  >
+    &copy; {new Date().getFullYear()} HackForge 2.0. All rights reserved.
+  </p>
+</div>
+
       </div>
     </footer>
   );
