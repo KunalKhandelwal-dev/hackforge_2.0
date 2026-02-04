@@ -20,7 +20,7 @@ import { toast } from 'sonner';
 import axios from 'axios';
 
 
-const BACKEND_URL = import.meta.env.BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 // const BACKEND_URL = "http://localhost:5000";
 const WHATSAPP_LINK = import.meta.env.WHATSAPP_LINK || 'https://chat.whatsapp.com/YOUR_GROUP_LINK';
 
