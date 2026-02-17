@@ -1,39 +1,38 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Trophy, Medal, Award, Star } from 'lucide-react';
+import { Trophy, Medal, Award, Star, Gift, Ribbon } from 'lucide-react';
 
 const prizes = [
   {
     position: '1st',
     title: 'Grand Champion',
-    amount: 25000,
+    amount: 5000,
     Icon: Trophy,
     color: '#FFD700',
-    perks: ['Trophy', 'Certificates', 'Internship Opportunity'],
+    perks: ['Trophy', 'Winner Merchandise', 'Certificate'],
   },
   {
     position: '2nd',
     title: 'First Runner-up',
-    amount: 15000,
+    amount: 3000,
     Icon: Medal,
     color: '#C0C0C0',
-    perks: ['Trophy', 'Certificates', 'Goodies'],
+    perks: ['Trophy', 'Winner Merchandise', 'Certificate'],
   },
   {
     position: '3rd',
     title: 'Second Runner-up',
-    amount: 10000,
+    amount: 2000,
     Icon: Award,
     color: '#CD7F32',
-    perks: ['Trophy', 'Certificates', 'Goodies'],
+    perks: ['Trophy', 'Winner Merchandise', 'Certificate'],
   },
 ];
 
 const trackPrizes = [
-  { track: 'Best AI Project', amount: 5000 },
-  { track: 'Best UI/UX', amount: 5000 },
-  { track: 'Most Innovative', amount: 5000 },
-  { track: 'People\'s Choice', amount: 5000 },
+  { track: 'Top 15 Teams', award: 'Finalist Certificates', Icon: Ribbon, color: '#A78BFA' },
+  { track: 'All Participants', award: 'Participation Certificates', Icon: Gift, color: '#C4B5FD' },
+  { track: 'All Participants', award: 'Exclusive Stickers', Icon: Star, color: '#7C3AED' },
 ];
 
 const AnimatedNumber = ({ value, isInView }) => {
@@ -99,14 +98,17 @@ export const Prizes = () => {
             className="text-xs tracking-[0.3em] uppercase mb-4"
             style={{ color: '#7C3AED' }}
           >
-            What You Win
+            Prizes & Incentives
           </motion.p>
           <h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
             style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
           >
-            Prizes Worth <span style={{ color: '#7C3AED' }}>₹50,000+</span>
+            Total Prize Pool <span style={{ color: '#7C3AED' }}>₹10k+</span>
           </h2>
+          <p className="mt-4 text-base md:text-lg" style={{ color: '#9CA3AF' }}>
+            Rewards for innovation, excellence, and outstanding technical performance
+          </p>
         </motion.div>
 
         {/* Main prizes */}
@@ -190,7 +192,7 @@ export const Prizes = () => {
           ))}
         </div>
 
-        {/* Track prizes */}
+        {/* Awards & Recognition */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -200,12 +202,12 @@ export const Prizes = () => {
             className="text-center text-xl font-bold mb-8"
             style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
           >
-            Special Category Awards
+            Awards & Recognition
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {trackPrizes.map((item, index) => (
               <motion.div
-                key={item.track}
+                key={item.track + index}
                 className="p-5 rounded-xl text-center"
                 style={{
                   backgroundColor: 'rgba(26, 11, 46, 0.4)',
@@ -217,11 +219,17 @@ export const Prizes = () => {
                 }}
                 data-testid={`track-prize-${index}`}
               >
+                <motion.div
+                  className="flex items-center justify-center mb-3"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <item.Icon size={24} style={{ color: item.color }} />
+                </motion.div>
                 <p className="text-sm mb-2" style={{ color: '#D1D5DB' }}>
                   {item.track}
                 </p>
-                <p className="text-2xl font-bold" style={{ color: '#A78BFA' }}>
-                  ₹{item.amount.toLocaleString()}
+                <p className="text-sm font-semibold" style={{ color: item.color }}>
+                  {item.award}
                 </p>
               </motion.div>
             ))}

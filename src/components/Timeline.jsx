@@ -77,24 +77,38 @@ export const Timeline = () => {
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         {/* Section header */}
         <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.p
-            className="text-xs tracking-[0.3em] uppercase mb-4"
-            style={{ color: '#7C3AED' }}
-          >
-            The Journey
-          </motion.p>
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
-          >
-            Event <span style={{ color: '#7C3AED' }}>Timeline</span>
-          </h2>
-        </motion.div>
+  className="text-center mb-16 md:mb-20"
+  initial={{ opacity: 0, y: 40 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6 }}
+>
+  <motion.p
+    className="text-xs tracking-[0.3em] uppercase mb-4"
+    style={{ color: '#7C3AED' }}
+  >
+    The Journey
+  </motion.p>
+
+  <h2
+    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
+    style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+  >
+    Event <span style={{ color: '#7C3AED' }}>Timeline</span>
+  </h2>
+
+  {/* Helper paragraph */}
+  <motion.p
+    className="mt-6 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
+    style={{ color: '#9CA3AF' }}
+    initial={{ opacity: 0, y: 20 }}
+    animate={isInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.6, delay: 0.1 }}
+  >
+    From kickoff to final demos, here’s a clear breakdown of key milestones,
+    submission deadlines, and judging rounds to keep you on track.
+  </motion.p>
+</motion.div>
+
 
         {/* Timeline */}
         <div className="relative">

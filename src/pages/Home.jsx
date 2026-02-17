@@ -58,7 +58,7 @@ const Home = () => {
             <Hero onRegisterClick={() => setIsRegistrationOpen(true)} />
             <About />
             <Tracks />
-            <Sponsors />
+            {/* <Sponsors /> */}
             <Prizes />
             <Timeline />
             <FAQ />

@@ -2,13 +2,34 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
 
-const team = [
+const studentMentors = [
   {
-    name: 'Dr. Priya Sharma',
-    role: 'Faculty Coordinator',
-    image: 'PS',
-    linkedin: '#',
+    name: 'Nitish',
+    role: 'Student Mentor',
+    image: './images/team/nitish.png',
+    linkedin: 'https://www.linkedin.com/in/nitish315',
   },
+  {
+    name: 'Shravya',
+    role: 'Student Mentor',
+    image: './images/team/shravya.png',
+    linkedin: 'https://www.linkedin.com/in/shravyatrey315',
+  },
+  {
+    name: 'Sahil',
+    role: 'Student Mentor',
+    image: './images/team/sahil.png',
+    linkedin: 'https://www.linkedin.com/in/sahil-bhardwaj-1b1672320/',
+  },
+  {
+    name: 'Suryansh',
+    role: 'Student Mentor',
+    image: './images/team/suryansh.png',
+    linkedin: 'https://www.linkedin.com/in/suryansh-saini-216712292/',
+  },
+];
+
+const coreTeam = [
   {
     name: 'Kunal Khandelwal',
     role: 'Technical Lead',
@@ -16,42 +37,132 @@ const team = [
     linkedin: 'https://www.linkedin.com/in/kunal-khandelwal-62a5b1311/',
   },
   {
-    name: 'Ananya Singh',
-    role: 'Design Lead',
-    image: 'AS',
-    linkedin: '#',
+    name: 'Muskan Sharma',
+    role: 'Stage Ops Lead',
+    image: './images/team/muskan.png',
+    linkedin: 'https://www.linkedin.com/in/kaushikmuskan29',
   },
   {
-    name: 'Vikram Patel',
-    role: 'Operations Head',
-    image: 'VP',
-    linkedin: '#',
+    name: 'Riya',
+    role: 'Social Media & Branding',
+    image: './images/team/riya.png',
+    linkedin: 'https://www.linkedin.com/in/riya-rana-b752a6327/',
   },
   {
-    name: 'Neha Gupta',
-    role: 'Sponsorship Lead',
-    image: 'NG',
-    linkedin: '#',
+    name: 'Nera',
+    role: 'Design & Creative Assets',
+    image: './images/team/nera.png',
+    linkedin: 'https://www.linkedin.com/in/nera123',
   },
   {
-    name: 'Arjun Mehta',
-    role: 'Marketing Lead',
-    image: 'AM',
-    linkedin: '#',
+    name: 'Mimansha',
+    role: 'Logistics Management',
+    image: './images/team/mimansha.png',
+    linkedin: 'https://www.linkedin.com/in/mimansha-yadav-764434322/',
   },
   {
-    name: 'Kavita Reddy',
-    role: 'Content Lead',
-    image: 'KR',
-    linkedin: '#',
+    name: 'Krishna',
+    role: 'Logistics Management',
+    image: './images/team/krishna.png',
+    linkedin: 'https://www.linkedin.com/in/krishna-gupta-890147374',
   },
   {
-    name: 'Sanjay Kumar',
-    role: 'Logistics Head',
-    image: 'SK',
-    linkedin: '#',
+    name: 'Janvi',
+    role: 'Registration Lead',
+    image: './images/team/janvi.png',
+    linkedin: 'https://www.linkedin.com/in/janvi-devi-90550537',
+  },
+  {
+    name: 'Lakshay',
+    role: 'Registration Lead',
+    image: './images/team/lakshay.png',
+    linkedin: 'https://www.linkedin.com/in/lakshay-mittal-699a00389',
+  },
+  {
+    name: 'Dhristi',
+    role: 'Coordinator Management',
+    image: './images/team/dhristi.png',
+    linkedin: 'https://www.linkedin.com/in/drishti-jaspal-52678037',
   },
 ];
+
+const TeamGrid = ({ data, isInView }) => (
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {data.map((member, index) => (
+      <motion.div
+        key={member.name + index}
+        className="group relative"
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+      >
+        <motion.div
+          className="p-6 rounded-2xl text-center"
+          style={{
+            backgroundColor: 'rgba(26, 11, 46, 0.4)',
+            border: '1px solid rgba(124, 58, 237, 0.15)',
+          }}
+          whileHover={{
+            y: -8,
+            borderColor: 'rgba(124, 58, 237, 0.4)',
+            boxShadow: '0 10px 40px rgba(124, 58, 237, 0.15)',
+          }}
+        >
+          {/* Avatar */}
+          <motion.div
+            className="-mt-4 mx-auto rounded-full overflow-hidden mb-6 w-28 h-28 md:w-32 md:h-32"
+            style={{
+              border: '3px solid rgba(124, 58, 237, 0.6)',
+              boxShadow: '0 0 30px rgba(124, 58, 237, 0.45)',
+            }}
+            whileHover={{
+              scale: 1.08,
+              boxShadow: '0 0 45px rgba(124, 58, 237, 0.75)',
+            }}
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover"
+              style={{ filter: 'brightness(1.08) contrast(1.05)' }}
+              loading="lazy"
+            />
+          </motion.div>
+
+          <h3
+            className="text-lg font-bold mb-1"
+            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+          >
+            {member.name}
+          </h3>
+
+          <p className="text-sm mb-4" style={{ color: '#9CA3AF' }}>
+            {member.role}
+          </p>
+
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center mx-auto mt-2 w-12 h-12 rounded-full"
+            style={{
+              backgroundColor: 'rgba(124, 58, 237, 0.15)',
+              border: '1px solid rgba(124, 58, 237, 0.4)',
+            }}
+          >
+            <lord-icon
+              src="https://cdn.lordicon.com/qgebwute.json"
+              trigger="loop"
+              delay="2000"
+              colors="primary:#ffffff,secondary:#ffffff"
+              style={{ width: '26px', height: '26px' }}
+            />
+          </a>
+        </motion.div>
+      </motion.div>
+    ))}
+  </div>
+);
 
 export const Team = () => {
   const ref = useRef(null);
@@ -74,121 +185,102 @@ export const Team = () => {
       />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section header */}
+        {/* Section header - Meet The Crew (Centered) */}
         <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.p
-            className="text-xs tracking-[0.3em] uppercase mb-4"
-            style={{ color: '#7C3AED' }}
-          >
-            Meet The Crew
-          </motion.p>
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
-          >
-            Organizing <span style={{ color: '#7C3AED' }}>Team</span>
-          </h2>
-        </motion.div>
-
-        {/* Team grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {team.map((member, index) => (
-            <motion.div
-              key={member.name}
-              className="group relative"
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              data-testid={`team-member-${index}`}
-            >
-              <motion.div
-                className="p-6 rounded-2xl text-center"
-                style={{
-                  backgroundColor: 'rgba(26, 11, 46, 0.4)',
-                  border: '1px solid rgba(124, 58, 237, 0.15)',
-                }}
-                whileHover={{
-                  y: -8,
-                  borderColor: 'rgba(124, 58, 237, 0.4)',
-                  boxShadow: '0 10px 40px rgba(124, 58, 237, 0.15)',
-                }}
-              >
-                {/* Avatar */}
-               <motion.div
-  className="-mt-4 mx-auto rounded-full overflow-hidden mb-6
-             w-28 h-28 md:w-32 md:h-32"
-  style={{
-    border: '3px solid rgba(124, 58, 237, 0.6)',
-    boxShadow: '0 0 30px rgba(124, 58, 237, 0.45)',
-  }}
-  whileHover={{
-    scale: 1.08,
-    boxShadow: '0 0 45px rgba(124, 58, 237, 0.75)',
-  }}
+  className="text-center mb-16 md:mb-20"
+  initial={{ opacity: 0, y: 40 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6 }}
 >
-  <img
-    src={member.image}
-    alt={member.name}
-    className="w-full h-full object-cover"
-    style={{
-      filter: 'brightness(1.08) contrast(1.05)',
-    }}
-  />
+  <motion.p
+    className="text-xs tracking-[0.3em] uppercase mb-4"
+    style={{ color: '#7C3AED' }}
+  >
+    Meet The Crew
+  </motion.p>
+
+  <h2
+    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
+    style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+  >
+    Organizing <span style={{ color: '#7C3AED' }}>Team</span>
+  </h2>
+
+  <motion.p
+    className="mt-6 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed"
+    style={{ color: '#9CA3AF' }}
+    initial={{ opacity: 0, y: 20 }}
+    animate={isInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.6, delay: 0.1 }}
+  >
+    HackForge 2.0 is powered by two dedicated groups — the core team driving
+    the vision, planning, and execution of the event, and the student mentors
+    who supported the team and helped make this hackathon a reality.
+  </motion.p>
 </motion.div>
 
 
+        {/* Student Mentors Section (Left-aligned) */}
+        <motion.div
+          className="mt-20 mb-12"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h2
+            className="text-3xl sm:text-4xl font-extrabold mb-4"
+            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+          >
+            Student <span style={{ color: '#7C3AED' }}>Mentors</span>
+          </h2>
 
-                {/* Name */}
-                <h3
-                  className="text-lg font-bold mb-1"
-                  style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
-                >
-                  {member.name}
-                </h3>
+          <motion.p
+            className="text-sm sm:text-base leading-relaxed max-w-3xl"
+            style={{ color: '#9CA3AF' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            Student mentors who supported the core team and contributed across planning,
+  coordination, and on-ground execution to make HackForge possible.
+          </motion.p>
+        </motion.div>
 
-                {/* Role */}
-                <p className="text-sm mb-4" style={{ color: '#9CA3AF' }}>
-                  {member.role}
-                </p>
+        {/* Student Mentors Grid */}
+        <TeamGrid data={studentMentors} isInView={isInView} />
 
-                {/* LinkedIn icon */}
-                <a
-  href={member.linkedin}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center justify-center mx-auto mt-2
-             w-12 h-12 rounded-full"
-  style={{
-    backgroundColor: 'rgba(124, 58, 237, 0.15)',
-    border: '1px solid rgba(124, 58, 237, 0.4)',
-  }}
->
-  <lord-icon
-    src="https://cdn.lordicon.com/qgebwute.json"
-    trigger="loop"
-    delay="2000"
-    colors="primary:#ffffff,secondary:#ffffff"
+        {/* Core Team Section (Left-aligned) */}
+        <motion.div
+          className="mt-20 mb-12"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h2
+            className="text-3xl sm:text-4xl font-extrabold mb-4"
+            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+          >
+            Core <span style={{ color: '#7C3AED' }}>Committee</span>
+          </h2>
 
-    style={{
-      width: '26px',
-      height: '26px',
-    }}
-  />
-</a>
+          <motion.p
+            className="text-sm sm:text-base leading-relaxed max-w-3xl"
+            style={{ color: '#9CA3AF' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+             The core team behind HackForge 2.0 — leading strategy, building the platform,
+  managing operations, and executing every detail from idea to launch.
+          </motion.p>
+        </motion.div>
 
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Core Team Grid */}
+        <TeamGrid data={coreTeam} isInView={isInView} />
 
         {/* GTH & SCSE Credit */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-20 text-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}
@@ -203,3 +295,5 @@ export const Team = () => {
     </section>
   );
 };
+
+export default Team;

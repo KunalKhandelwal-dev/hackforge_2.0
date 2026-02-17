@@ -11,23 +11,15 @@ const footerLinks = {
   resources: [
     { name: 'FAQs', href: '#faqs' },
     { name: 'Code of Conduct', href: '#' },
-    // { name: 'Judging Criteria', href: '#' },
-    { name: 'Past Events', href: '#' },
+    { name: 'Past Events', href: 'https://nexhack.geetauniversity.edu.in/', external: true },
   ],
   community: [
     { name: 'Team', href: '#team' },
-    { name: 'Sponsors', href: '#sponsors' },
-    // { name: 'Partners', href: '#' },
-    { name: 'Contact Us', href: 'mailto:hackforge@geetauniversity.edu.in' },
+    { name: 'Contact Us', href: 'mailto:codeforge@geetauniversity.edu.in', external: true },
   ],
 };
 
 const socialLinks = [
-  {
-    label: 'GitHub',
-    href: '#',
-    Icon: 'https://cdn.lordicon.com/jjxzcivr.json',
-  },
   {
     label: 'Twitter',
     href: '#',
@@ -35,12 +27,12 @@ const socialLinks = [
   },
   {
     label: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/codeforge_cse?igsh=aGZpdTB6ZHlvZzhp',
     Icon: 'https://cdn.lordicon.com/tgyvxauj.json',
   },
   {
     label: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/in/code-forge-a45397350',
     Icon: 'https://cdn.lordicon.com/qgebwute.json',
   },
 ];
@@ -48,11 +40,26 @@ const socialLinks = [
 
 export const Footer = ({ onRegisterClick }) => {
   const scrollToSection = (href) => {
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLinkClick = (link, e) => {
+    e.preventDefault();
+
+    if (link.external) {
+      if (link.href.startsWith('mailto:')) {
+        // Open email client
+        window.location.href = link.href;
+      } else {
+        // Open external URL in new tab
+        window.open(link.href, '_blank', 'noopener,noreferrer');
       }
+    } else {
+      // Internal link - scroll to section
+      scrollToSection(link.href);
     }
   };
 
@@ -73,62 +80,64 @@ export const Footer = ({ onRegisterClick }) => {
       />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
-        {/* CTA — MOVED ABOVE FOOTER CONTENT */}
-  <motion.div
-    className="text-center mb-24"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-  >
-    <h3
-      className="text-2xl md:text-3xl font-extrabold mb-4"
-      style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
-    >
-      Ready to Build Something Amazing?
-    </h3>
-    <p className="text-sm mb-6" style={{ color: '#9CA3AF' }}>
-      Join 100+ hackers at HackForge 2.0 | May 2026
-    </p>
-    <motion.button
-      onClick={onRegisterClick}
-      className="px-8 py-4 rounded-full text-base font-semibold"
-      style={{
-        backgroundColor: '#7C3AED',
-        color: '#FFFFFF',
-        boxShadow: '0 0 30px rgba(124, 58, 237, 0.4)',
-      }}
-      whileHover={{
-        scale: 1.05,
-        boxShadow: '0 0 50px rgba(124, 58, 237, 0.6)',
-      }}
-      whileTap={{ scale: 0.98 }}
-    >
-      Register Now
-    </motion.button>
-  </motion.div>
-        <div className="mb-16">
-    <h4
-      className="text-sm uppercase tracking-widest mb-6"
-      style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
-    >
-      Find Us
-    </h4>
-    <div
-      className="rounded-xl overflow-hidden h-64"
-      style={{ border: '1px solid rgba(124, 58, 237, 0.2)' }}
-    >
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26256.19332660918!2d76.8773228167928!3d29.300602642448634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dc3b5533b6d9f%3A0x1b563db61bcc0195!2sGEETA%20UNIVERSITY%2C%20NAULTHA%2C%20PANIPAT!5e1!3m2!1sen!2sin!4v1769969839896!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(90%)' }}
-        loading="lazy"
-        title="Geeta University Location"
-      />
-    </div>
-  </div>
+        {/* CTA */}
+        <motion.div
+          className="text-center mb-24"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h3
+            className="text-2xl md:text-3xl font-extrabold mb-4"
+            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+          >
+            Ready to Build Something Amazing?
+          </h3>
+          <p className="text-sm mb-6" style={{ color: '#9CA3AF' }}>
+            Join 100+ hackers at HackForge 2.0 | April 2026
+          </p>
+          <motion.button
+            onClick={onRegisterClick}
+            className="px-8 py-4 rounded-full text-base font-semibold"
+            style={{
+              backgroundColor: '#7C3AED',
+              color: '#FFFFFF',
+              boxShadow: '0 0 30px rgba(124, 58, 237, 0.4)',
+            }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 50px rgba(124, 58, 237, 0.6)',
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Register Now
+          </motion.button>
+        </motion.div>
 
-  
+        {/* Map Section */}
+        <div className="mb-16">
+          <h4
+            className="text-sm uppercase tracking-widest mb-6"
+            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+          >
+            Find Us
+          </h4>
+          <div
+            className="rounded-xl overflow-hidden h-64"
+            style={{ border: '1px solid rgba(124, 58, 237, 0.2)' }}
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26256.19332660918!2d76.8773228167928!3d29.300602642448634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dc3b5533b6d9f%3A0x1b563db61bcc0195!2sGEETA%20UNIVERSITY%2C%20NAULTHA%2C%20PANIPAT!5e1!3m2!1sen!2sin!4v1769969839896!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(90%)' }}
+              loading="lazy"
+              title="Geeta University Location"
+              data-testid="footer-map"
+            />
+          </div>
+        </div>
+
         {/* Main footer content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand column */}
@@ -143,45 +152,42 @@ export const Footer = ({ onRegisterClick }) => {
             <p className="text-sm mb-6" style={{ color: '#9CA3AF' }}>
               A 24-hour hackathon where innovation meets execution. Build. Break. Repeat.
             </p>
-            
+
             {/* Contact info */}
             <div className="space-y-3">
               <a
-                href="mailto:hackforge@geetauniversity.edu.in"
+                href="mailto:codeforge@geetauniversity.edu.in"
                 className="flex items-center gap-3 text-sm hover:text-white transition-colors"
                 style={{ color: '#9CA3AF' }}
               >
                 <lord-icon
-  src="https://cdn.lordicon.com/aycieyht.json" // mail
-  trigger="loop"
-  colors="primary:#7C3AED,secondary:#A78BFA"
-  style={{ width: '18px', height: '18px' }}
-/>
-
-                hackforge@geetauniversity.edu.in
+                  src="https://cdn.lordicon.com/aycieyht.json"
+                  trigger="loop"
+                  colors="primary:#7C3AED,secondary:#A78BFA"
+                  style={{ width: '18px', height: '18px' }}
+                />
+                codeforge@geetauniversity.edu.in
               </a>
               <a
-                href="tel:+911234567890"
+                href="tel:+9190538708151"
                 className="flex items-center gap-3 text-sm hover:text-white transition-colors"
                 style={{ color: '#9CA3AF' }}
               >
                 <lord-icon
-  src="https://cdn.lordicon.com/srsgifqc.json" // phone
-  trigger="loop"
-  colors="primary:#7C3AED,secondary:#A78BFA"
-  style={{ width: '18px', height: '18px' }}
-/>
-
-                +91 123 456 7890
+                  src="https://cdn.lordicon.com/srsgifqc.json"
+                  trigger="loop"
+                  colors="primary:#7C3AED,secondary:#A78BFA"
+                  style={{ width: '18px', height: '18px' }}
+                />
+                +91 90538 708151
               </a>
               <div className="flex items-start gap-3 text-sm" style={{ color: '#9CA3AF' }}>
                 <lord-icon
-  src="https://cdn.lordicon.com/zzcjjxew.json" // location pin
-  trigger="loop"
-  colors="primary:#7C3AED,secondary:#A78BFA"
-  style={{ width: '18px', height: '18px' }}
-/>
-
+                  src="https://cdn.lordicon.com/zzcjjxew.json"
+                  trigger="loop"
+                  colors="primary:#7C3AED,secondary:#A78BFA"
+                  style={{ width: '18px', height: '18px' }}
+                />
                 <span>Geeta University, Panipat, Haryana, India</span>
               </div>
             </div>
@@ -200,9 +206,9 @@ export const Footer = ({ onRegisterClick }) => {
                 {links.map((link) => (
                   <li key={link.name}>
                     <motion.button
-                      onClick={() => scrollToSection(link.href)}
+                      onClick={(e) => handleLinkClick(link, e)}
                       className="text-sm transition-colors text-left"
-                      style={{ color: '#9CA3AF' }}
+                      style={{ color: '#9CA3AF', background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit' }}
                       whileHover={{ color: '#F3F4F6', x: 4 }}
                       data-testid={`footer-link-${link.name.toLowerCase().replace(/\s/g, '-')}`}
                     >
@@ -215,72 +221,14 @@ export const Footer = ({ onRegisterClick }) => {
           ))}
         </div>
 
-        {/* Google Maps */}
-        {/* <div className="mb-16">
-          <h4
-            className="text-sm uppercase tracking-widest mb-6"
-            style={{ color: '#A78BFA' }}
-          >
-            Find Us
-          </h4>
-          <div
-            className="rounded-xl overflow-hidden h-64"
-            style={{ border: '1px solid rgba(124, 58, 237, 0.2)' }}
-          >
-            <iframe
- src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26256.19332660918!2d76.8773228167928!3d29.300602642448634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dc3b5533b6d9f%3A0x1b563db61bcc0195!2sGEETA%20UNIVERSITY%2C%20NAULTHA%2C%20PANIPAT!5e1!3m2!1sen!2sin!4v1769969839896!5m2!1sen!2sin"              width="100%"
-              height="100%"
-              style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(90%)' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Geeta University Location"
-              data-testid="footer-map"
-            />
-          </div>
-        </div> */}
-
-        {/* CTA */}
-        {/* <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h3
-            className="text-2xl md:text-3xl font-extrabold mb-4"
-            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
-          >
-            Ready to Build Something Amazing?
-          </h3>
-          <p className="text-sm mb-6" style={{ color: '#9CA3AF' }}>
-            Join 100+ hackers at HackForge 2.0 | May 2026
-          </p>
-          <motion.button
-            onClick={onRegisterClick}
-            className="px-8 py-4 rounded-full text-base font-semibold"
-            style={{
-              backgroundColor: '#7C3AED',
-              color: '#FFFFFF',
-              boxShadow: '0 0 30px rgba(124, 58, 237, 0.4)',
-            }}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: '0 0 50px rgba(124, 58, 237, 0.6)',
-            }}
-            whileTap={{ scale: 0.98 }}
-            data-testid="footer-register-btn"
-          >
-            Register Now
-          </motion.button>
-        </motion.div> */}
-
         {/* Social links */}
         <div className="flex justify-center gap-4 mb-12">
           {socialLinks.map(({ Icon, href, label }) => (
             <motion.a
               key={label}
               href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full flex items-center justify-center"
               style={{
                 backgroundColor: 'rgba(124, 58, 237, 0.1)',
@@ -295,30 +243,30 @@ export const Footer = ({ onRegisterClick }) => {
               data-testid={`footer-social-${label.toLowerCase()}`}
             >
               <lord-icon
-  src={Icon}
-  trigger="loop"
-  colors="primary:#A78BFA,secondary:#7C3AED"
-  style={{ width: '20px', height: '20px' }}
-/>
-
+                src={Icon}
+                trigger="loop"
+                colors="primary:#A78BFA,secondary:#7C3AED"
+                style={{ width: '20px', height: '20px' }}
+              />
             </motion.a>
           ))}
         </div>
 
         {/* Bottom bar */}
         <div
-  className="pt-8 relative"
-  style={{ borderTop: '1px solid rgba(124, 58, 237, 0.1)' }}
->
-  <p
-    className="text-xs absolute left-1/2 -translate-x-1/2"
-    style={{ color: '#6B7280' }}
-  >
-    &copy; {new Date().getFullYear()} HackForge 2.0. All rights reserved.
-  </p>
-</div>
-
+          className="pt-8 relative"
+          style={{ borderTop: '1px solid rgba(124, 58, 237, 0.1)' }}
+        >
+          <p
+            className="text-xs absolute left-1/2 -translate-x-1/2"
+            style={{ color: '#6B7280' }}
+          >
+            &copy; {new Date().getFullYear()} HackForge 2.0. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;

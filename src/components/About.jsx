@@ -98,7 +98,7 @@ export const About = () => {
               {[
                 { value: '24', label: 'Hours' },
                 { value: '100+', label: 'Hackers' },
-                { value: '50K+', label: 'In Prizes' },
+                { value: '10K+', label: 'In Prizes' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}

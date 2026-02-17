@@ -10,37 +10,51 @@ import {
 const faqs = [
   {
     question: 'Who can participate in HackForge 2.0?',
-    answer: 'HackForge 2.0 is an internal hackathon open to all students of Geeta University. Whether you\'re from Computer Science, Electronics, or any other department, you\'re welcome to participate!',
+    answer:
+      'HackForge 2.0 is an internal hackathon open to all Geeta University students from any department and academic year.',
   },
   {
-    question: 'Do I need a team to participate?',
-    answer: 'Teams can have 2-4 members. If you don\'t have a team, don\'t worry! We\'ll have a team formation session where you can find like-minded participants to team up with.',
+    question: 'What is the team size?',
+    answer:
+      'Each team must have 2–4 members. Inter-departmental teams are encouraged to promote collaboration.',
   },
   {
-    question: 'What should I bring?',
-    answer: 'Bring your laptop, charger, and any hardware you might need for your project. We\'ll provide food, snacks, and a comfortable hacking environment.',
+    question: 'When and where will the hackathon take place?',
+    answer:
+      'HackForge 2.0 will be held on 3–4 April 2026 on campus. The inauguration and final presentations will be in the F Block Auditorium, and the hacking space will be in C Block classrooms.',
   },
   {
-    question: 'Do I need prior hackathon experience?',
-    answer: 'Not at all! HackForge welcomes participants of all skill levels. We\'ll have mentors to guide you through the process and workshops to help you learn new skills.',
+    question: 'What is the duration and mode of the event?',
+    answer:
+      'It is a 24-hour offline hackathon where teams will build, submit, and present their projects on campus.',
   },
   {
-    question: 'What can I build?',
-    answer: 'You can build anything within the given tracks - AI/ML projects, Web3 applications, HealthTech solutions, or any innovative idea. The only limit is your imagination!',
+    question: 'What themes will the hackathon focus on?',
+    answer:
+      'The hackathon will focus on EdTech and campus-centric solutions. Problem statements will be released at the start of the event.',
   },
   {
-    question: 'Will there be food and refreshments?',
-    answer: 'Yes! We\'ll provide meals, snacks, and beverages throughout the 24-hour hackathon. Caffeine lovers, we\'ve got you covered!',
+    question: 'How will projects be evaluated?',
+    answer:
+      'Projects will be judged on innovation, technical execution, impact, scalability, and presentation by a panel of faculty and industry experts.',
   },
   {
-    question: 'How will projects be judged?',
-    answer: 'Projects will be evaluated based on innovation, technical complexity, design, presentation, and real-world applicability. Our panel of judges includes industry experts and faculty members.',
+    question: 'Is there a registration fee?',
+    answer:
+      'Yes, the registration fee is ₹50 per participant.',
   },
   {
-    question: 'Is there any registration fee?',
-    answer: 'No, participation is completely free for all Geeta University students. Just register, show up, and start building!',
+    question: 'What are the prizes and rewards?',
+    answer:
+      'The total prize pool is ₹10,000 with awards for the top three teams, certificates for all participants, and special certificates for the top 15 finalists.',
+  },
+  {
+    question: 'Will food and facilities be provided?',
+    answer:
+      'Yes, meals, snacks, high-speed Wi-Fi, power backup, medical support, and a resting area will be available throughout the hackathon.',
   },
 ];
+
 
 export const FAQ = () => {
   const ref = useRef(null);
@@ -59,25 +73,38 @@ export const FAQ = () => {
 
       <div className="relative max-w-4xl mx-auto px-6 md:px-12">
         {/* Section header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.p
-            className="text-xs tracking-[0.3em] uppercase mb-4"
-            style={{ color: '#7C3AED' }}
-          >
-            Got Questions?
-          </motion.p>
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
-          >
-            Frequently Asked <span style={{ color: '#7C3AED' }}>Questions</span>
-          </h2>
-        </motion.div>
+       <motion.div
+  className="text-center mb-16"
+  initial={{ opacity: 0, y: 40 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6 }}
+>
+  <motion.p
+    className="text-xs tracking-[0.3em] uppercase mb-4"
+    style={{ color: '#7C3AED' }}
+  >
+    Got Questions?
+  </motion.p>
+
+  <h2
+    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
+    style={{ fontFamily: 'Syne, sans-serif', color: '#F3F4F6' }}
+  >
+    Frequently Asked <span style={{ color: '#7C3AED' }}>Questions</span>
+  </h2>
+
+  {/* New helper paragraph */}
+  <motion.p
+    className="mt-6 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
+    style={{ color: '#9CA3AF' }} // soft gray like your tracks subtitle
+    initial={{ opacity: 0, y: 20 }}
+    animate={isInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.6, delay: 0.1 }}
+  >
+    Quick answers to help you focus on building, not searching.
+  </motion.p>
+</motion.div>
+
 
         {/* FAQ Accordion */}
         <motion.div
@@ -130,7 +157,7 @@ export const FAQ = () => {
             Still have questions?
           </p>
           <motion.a
-            href="mailto:hackforge@geetauniversity.edu.in"
+            href="mailto:codeforge@geetauniversity.edu.in"
             className="inline-block px-6 py-3 rounded-full text-sm font-semibold"
             style={{
               backgroundColor: 'transparent',

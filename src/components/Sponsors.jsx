@@ -176,7 +176,7 @@ export const Sponsors = () => {
             Interested in sponsoring HackForge 2.0?
           </p>
           <motion.a
-            href="mailto:sponsors@hackforge.com"
+            href="mailto:hackforge@geetauniversity.edu.in"
             className="inline-block px-6 py-3 rounded-full text-sm font-semibold"
             style={{
               backgroundColor: 'transparent',
