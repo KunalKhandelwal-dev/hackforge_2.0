@@ -74,10 +74,10 @@ export const Tracks = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.p
-            className="text-xs tracking-[0.35em] uppercase font-semibold mb-6"
-            style={{ color: '#8B5CF6' }}
-          >
-            ✨ Choose Your Path
+    className="text-xs tracking-[0.3em] uppercase mb-4"
+    style={{ color: '#7C3AED' }}
+  >
+            Choose Your Path
           </motion.p>
 
           <h2
