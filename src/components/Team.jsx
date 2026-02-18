@@ -37,7 +37,7 @@ const coreTeam = [
     linkedin: 'https://www.linkedin.com/in/kunal-khandelwal-62a5b1311/',
   },
   {
-    name: 'Muskan Sharma',
+    name: 'Muskan Kaushik',
     role: 'Stage Ops Lead',
     image: './images/team/muskan.png',
     linkedin: 'https://www.linkedin.com/in/kaushikmuskan29',
