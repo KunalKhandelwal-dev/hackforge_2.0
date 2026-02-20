@@ -14,7 +14,7 @@ const TRACKS = Object.freeze([
 
 const YEARS = Object.freeze(['1st Year', '2nd Year', '3rd Year', '4th Year']);
 const TEAM_SIZE_OPTIONS = Object.freeze(['2', '3', '4']);
-const FEE_PER_MEMBER = 50;
+const FEE_PER_MEMBER = 100;
 
 const FORM_STEPS = ['details', 'team', 'payment', 'confirm'];
 
@@ -559,7 +559,7 @@ const StepTeam = React.memo(({ teamMembers, handleMemberChange, formData, handle
       >
         {TEAM_SIZE_OPTIONS.map((size) => (
           <option key={size} value={size}>
-            {size} Members (₹{50 * Number(size)})
+            {size} Members (₹{100 * Number(size)})
           </option>
         ))}
       </select>

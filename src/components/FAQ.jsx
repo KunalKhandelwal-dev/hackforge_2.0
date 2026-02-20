@@ -41,7 +41,7 @@ const faqs = [
   {
     question: 'Is there a registration fee?',
     answer:
-      'Yes, the registration fee is ₹50 per participant.',
+      'Yes, the registration fee is ₹100 per participant.',
   },
   {
     question: 'What are the prizes and rewards?',
