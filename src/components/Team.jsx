@@ -63,8 +63,8 @@ const coreTeam = [
   {
     name: 'Joyal',
     role: '2nd Year',
-    image: './images/team/mimansha.png',
-    linkedin: 'https://www.linkedin.com/in/mimansha-yadav-764434322/',
+    image: './images/team/joyal.png',
+    linkedin: 'https://www.linkedin.com/in/joyal-sandhu-a92111216',
   },
   {
     name: 'Krishna',

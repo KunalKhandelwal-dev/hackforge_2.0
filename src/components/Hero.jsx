@@ -444,7 +444,7 @@ export const Hero = ({ onRegisterClick }) => {
               fontFamily: 'JetBrains Mono, monospace',
             }}
           >
-            Geeta University • April 2026
+            Geeta University • 3rd & 4th April 2026
           </p>
         </motion.div>
 
