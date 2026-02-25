@@ -1,31 +1,54 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export const Hero = ({ onRegisterClick }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const mousePositionRef = useRef({ x: 0, y: 0 });
   const videoRef = useRef(null);
   const [easterEggActive, setEasterEggActive] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const isScrolling = useRef(false)
+const scrollTimeout = useRef(null)
+const mouseX = useMotionValue(0);
+const mouseY = useMotionValue(0);
+
+const springX = useSpring(mouseX, { stiffness: 60, damping: 20, mass: 0.4 });
+const springY = useSpring(mouseY, { stiffness: 60, damping: 20, mass: 0.4 });
+
+const batX = useTransform(springX, [-0.5, 0.5], [12, -12]);
+const batY = useTransform(springY, [-0.5, 0.5], [12, -12]);
+
+useEffect(() => {
+  const handleScroll = () => {
+    isScrolling.current = true
+
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current)
+    }
+
+    scrollTimeout.current = setTimeout(() => {
+      isScrolling.current = false
+    }, 120) // scrolling stops after 120ms
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll)
+  }
+}, [])
 
   // Throttled mouse move handler
   useEffect(() => {
     let throttleTimer = null;
 
-    const handleMouseMove = (e) => {
-      if (throttleTimer) return;
+   const handleMouseMove = (e) => {
+  if (isScrolling.current) return;
 
-      mousePositionRef.current = {
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      };
+  const x = e.clientX / window.innerWidth - 0.5;
+  const y = e.clientY / window.innerHeight - 0.5;
 
-      setMousePosition(mousePositionRef.current);
-
-      throttleTimer = setTimeout(() => {
-        throttleTimer = null;
-      }, 16); // ~60fps
-    };
+  mouseX.set(x);
+  mouseY.set(y);
+};
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -75,7 +98,7 @@ export const Hero = ({ onRegisterClick }) => {
   }, []);
 
   const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
-  const batCount = isMobile ? 8 : 14; // Reduced from 10/18
+  const batCount = isMobile ? 6 : 12; // Reduced from 10/18
 
   const bats = useMemo(() => {
     return Array.from({ length: batCount }).map((_, i) => {
@@ -233,9 +256,10 @@ export const Hero = ({ onRegisterClick }) => {
               width: 160 * b.scale,
               height: 72 * b.scale,
               zIndex: 6,
-              animation: prefersReducedMotion
-                ? 'none'
-                : `${pathKey} ${b.duration}s linear ${b.delay}s infinite`,
+              animation:
+  prefersReducedMotion || isScrolling.current
+    ? 'none'
+    : `${pathKey} ${b.duration}s linear ${b.delay}s infinite`,
               contain: 'layout style paint',
             }}
           >
@@ -248,10 +272,8 @@ export const Hero = ({ onRegisterClick }) => {
                 pointerEvents: 'auto',
                 willChange: 'transform',
                 contain: 'paint',
-              }}
-              animate={{
-                x: prefersReducedMotion ? 0 : mousePositionRef.current.x * -1,
-                y: prefersReducedMotion ? 0 : mousePositionRef.current.y * -1,
+                x: prefersReducedMotion ? 0 : batX,
+  y: prefersReducedMotion ? 0 : batY,
               }}
               transition={{
                 type: 'spring',
@@ -477,7 +499,7 @@ export const Hero = ({ onRegisterClick }) => {
 
           <motion.button
             onClick={scrollToTracks}
-            className="px-10 py-4 rounded-full text-base font-semibold backdrop-blur-sm"
+            className="px-10 py-4 rounded-full text-base font-semibold"
             style={{
               color: '#E5E7EB',
               backgroundColor: 'rgba(124, 58, 237, 0.08)',

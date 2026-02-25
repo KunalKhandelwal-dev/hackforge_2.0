@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 import axios from 'axios';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-const WHATSAPP_LINK = import.meta.env.WHATSAPP_LINK || 'https://chat.whatsapp.com/YOUR_GROUP_LINK';
+const WHATSAPP_LINK =" https://chat.whatsapp.com/Grc5YSsGkPe7u20HYINW3G";
 
 const TRACKS = Object.freeze([
   'EdTech Solutions',
