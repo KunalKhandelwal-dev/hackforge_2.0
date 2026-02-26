@@ -22,7 +22,7 @@ const footerLinks = {
 const socialLinks = [
   {
     label: 'Twitter',
-    href: '#',
+    href: 'https://x.com/codeforge_cse',
     Icon: 'https://cdn.lordicon.com/wlbymhoo.json',
   },
   {
@@ -169,7 +169,7 @@ export const Footer = ({ onRegisterClick }) => {
                 codeforge@geetauniversity.edu.in
               </a>
               <a
-                href="tel:+9190538708151"
+                href="tel:+919053709750"
                 className="flex items-center gap-3 text-sm hover:text-white transition-colors"
                 style={{ color: '#9CA3AF' }}
               >
@@ -179,7 +179,7 @@ export const Footer = ({ onRegisterClick }) => {
                   colors="primary:#7C3AED,secondary:#A78BFA"
                   style={{ width: '18px', height: '18px' }}
                 />
-                +91 90538 708151
+                +91 90537 09750
               </a>
               <div className="flex items-start gap-3 text-sm" style={{ color: '#9CA3AF' }}>
                 <lord-icon

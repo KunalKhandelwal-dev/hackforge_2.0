@@ -76,7 +76,7 @@ const coreTeam = [
     name: 'Janvi',
     role: '1st Year',
     image: './images/team/janvi.png',
-    linkedin: 'https://www.linkedin.com/in/janvi-devi-90550537',
+    linkedin: 'https://www.linkedin.com/in/janvi-devi-90550537a/',
   },
   {
     name: 'Lakshay',
@@ -88,7 +88,7 @@ const coreTeam = [
     name: 'Drishti',
     role: '1st Year',
     image: './images/team/dhristi.png',
-    linkedin: 'https://www.linkedin.com/in/drishti-jaspal-52678037',
+    linkedin: 'https://www.linkedin.com/in/drishti-jaspal-52678037a/',
   },
 ];
 
