@@ -234,6 +234,37 @@ export const Prizes = () => {
               </motion.div>
             ))}
           </div>
+          {/* Special Prize */}
+<motion.div
+  className="mt-6 p-6 rounded-2xl text-center border"
+  style={{
+    background: 'linear-gradient(135deg, rgba(124,58,237,0.15), rgba(59,130,246,0.15))',
+    borderColor: 'rgba(124, 58, 237, 0.4)',
+  }}
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+  transition={{ duration: 0.5, delay: 0.7 }}
+  whileHover={{ scale: 1.02 }}
+>
+  <div className="flex items-center justify-center mb-3">
+    ⭐
+  </div>
+
+  <p className="text-sm mb-2" style={{ color: '#D1D5DB' }}>
+    Special Prize
+  </p>
+
+  <p
+    className="text-base font-semibold"
+    style={{ color: '#A78BFA' }}
+  >
+    Cross-Department Team Award
+  </p>
+
+  <p className="text-xs mt-2" style={{ color: '#9CA3AF' }}>
+    Awarded to the winning team that includes members from different departments
+  </p>
+</motion.div>
         </motion.div>
       </div>
     </section>
