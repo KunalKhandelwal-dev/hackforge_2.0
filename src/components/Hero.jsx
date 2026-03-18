@@ -466,7 +466,11 @@ useEffect(() => {
               fontFamily: 'JetBrains Mono, monospace',
             }}
           >
+<<<<<<< HEAD
             Geeta University • 14th & 15th April 2026
+=======
+            Geeta University • 17th & 18th April 2026
+>>>>>>> 01beec030d1652fa0aa2c14ca5f14dd33dee68f1
           </p>
         </motion.div>
 
