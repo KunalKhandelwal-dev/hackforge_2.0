@@ -73,6 +73,30 @@ const coreTeam = [
     linkedin: 'https://www.linkedin.com/in/joyal-sandhu-a92111216',
   },
   {
+    name: 'Garima',
+    role: 'MCA 1st Year',
+    image: './images/team/garima.webp',
+    linkedin: 'https://www.linkedin.com/in/garima-malik-5b2842291',
+  },
+  {
+    name: 'Khushi Saini',
+    role: 'MCA 1st Year',
+    image: './images/team/khushi.webp',
+    linkedin: 'https://www.linkedin.com/in/khushi-saini-84b87b263',
+  },
+  {
+    name: 'Jiya Sukhija',
+    role: 'MCA 1st Year',
+    image: './images/team/jiya.webp',
+    linkedin: 'https://www.linkedin.com/in/jiya-sukhija-170603j/',
+  },
+  {
+    name: 'Vibha',
+    role: 'MCA 1st Year',
+    image: './images/team/vibha.webp',
+    linkedin: 'https://www.linkedin.com/in/vibha-arora-183221389/',
+  },
+  {
     name: 'Krishna',
     role: 'BTech 1st Year',
     image: './images/team/krishna.webp',
