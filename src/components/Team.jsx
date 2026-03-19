@@ -28,7 +28,7 @@ const studentMentors = [
     linkedin: 'https://www.linkedin.com/in/suryansh-saini-216712292/',
   },
   {
-    name: 'Pranshul Thareja',
+    name: 'Pranshul Threja',
     role: 'MCA 1st Year',
     image: './images/team/pranshul.webp',
     linkedin: 'https://www.linkedin.com/in/pranshul-threja-4a278237a/',
