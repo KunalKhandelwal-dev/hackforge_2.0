@@ -21,7 +21,7 @@ const faqs = [
   {
     question: 'When and where will the hackathon take place?',
     answer:
-      'HackForge 2.0 will be held on 3–4 April 2026 on campus. The inauguration and final presentations will be in the F Block Auditorium, and the hacking space will be in C Block classrooms.',
+      'HackForge 2.0 will be held on 14-15 April 2026 on campus. The inauguration and final presentations will be in the F Block Auditorium, and the hacking space will be in C Block classrooms.',
   },
   {
     question: 'What is the duration and mode of the event?',
