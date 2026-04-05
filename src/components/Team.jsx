@@ -48,12 +48,12 @@ const coreTeam = [
     image: './images/team/muskan.webp',
     linkedin: 'https://www.linkedin.com/in/kaushikmuskan29',
   },
-  // {
-  //   name: 'Riya',
-  //   role: 'BTech 2nd Year',
-  //   image: './images/team/riya.webp',
-  //   linkedin: 'https://www.linkedin.com/in/riya-rana-b752a6327/',
-  // },
+  {
+    name: 'Vinit',
+    role: 'BCA 2nd Year',
+    image: './images/team/vinit.webp',
+    linkedin: 'https://www.linkedin.com/in/vinit-vashishta-4280b8323/',
+  },
   {
     name: 'Nera',
     role: 'BTech 2nd Year',
