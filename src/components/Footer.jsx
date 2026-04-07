@@ -39,6 +39,8 @@ const socialLinks = [
 
 
 export const Footer = ({ onRegisterClick }) => {
+  const registrationDeadline = new Date('2026-04-08T15:59:59');
+  const isRegistrationOpen = new Date() < registrationDeadline;
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
@@ -97,20 +99,22 @@ export const Footer = ({ onRegisterClick }) => {
             Join 100+ hackers at HackForge 2.0 | April 2026
           </p>
           <motion.button
-            onClick={onRegisterClick}
+            onClick={isRegistrationOpen ? onRegisterClick : undefined}
+            disabled={!isRegistrationOpen}
             className="px-8 py-4 rounded-full text-base font-semibold"
             style={{
-              backgroundColor: '#7C3AED',
+              backgroundColor: isRegistrationOpen ? '#7C3AED' : '#6B7280',
               color: '#FFFFFF',
-              boxShadow: '0 0 30px rgba(124, 58, 237, 0.4)',
+              boxShadow: isRegistrationOpen ? '0 0 30px rgba(124, 58, 237, 0.4)' : '0 0 30px rgba(107, 114, 128, 0.4)',
+              opacity: isRegistrationOpen ? 1 : 0.6,
             }}
-            whileHover={{
+            whileHover={isRegistrationOpen ? {
               scale: 1.05,
               boxShadow: '0 0 50px rgba(124, 58, 237, 0.6)',
-            }}
-            whileTap={{ scale: 0.98 }}
+            } : {}}
+            whileTap={isRegistrationOpen ? { scale: 0.98 } : {}}
           >
-            Register Now
+            {isRegistrationOpen ? "Register Now" : "Registration Closed"}
           </motion.button>
         </motion.div>
 

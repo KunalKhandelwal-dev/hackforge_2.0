@@ -5,6 +5,8 @@ export const Hero = ({ onRegisterClick }) => {
   const videoRef = useRef(null);
   const [easterEggActive, setEasterEggActive] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const registrationDeadline = new Date('2026-04-08T15:59:59');
+  const isRegistrationOpen = new Date() < registrationDeadline;
   const isScrolling = useRef(false)
 const scrollTimeout = useRef(null)
 const mouseX = useMotionValue(0);
@@ -478,23 +480,27 @@ useEffect(() => {
           transition={{ duration: 0.6, delay: 1.4 }}
         >
           <motion.button
-            onClick={onRegisterClick}
+            onClick={isRegistrationOpen ? onRegisterClick : undefined}
+            disabled={!isRegistrationOpen}
             className="px-10 py-4 rounded-full text-base font-semibold"
             style={{
               color: '#FFFFFF',
-              background:
-                'linear-gradient(180deg, #8B5CF6 0%, #7C3AED 55%, #6D28D9 100%)',
-              boxShadow:
-                '0 10px 30px rgba(124, 58, 237, 0.35), inset 0 1px 0 rgba(255,255,255,0.2)',
+              background: isRegistrationOpen
+                ? 'linear-gradient(180deg, #8B5CF6 0%, #7C3AED 55%, #6D28D9 100%)'
+                : 'linear-gradient(180deg, #6B7280 0%, #4B5563 55%, #374151 100%)',
+              boxShadow: isRegistrationOpen
+                ? '0 10px 30px rgba(124, 58, 237, 0.35), inset 0 1px 0 rgba(255,255,255,0.2)'
+                : '0 10px 30px rgba(107, 114, 128, 0.35), inset 0 1px 0 rgba(255,255,255,0.2)',
               border: '1px solid rgba(255, 255, 255, 0.18)',
+              opacity: isRegistrationOpen ? 1 : 0.6,
             }}
-            whileHover={{
+            whileHover={isRegistrationOpen ? {
               boxShadow: '0 14px 40px rgba(124, 58, 237, 0.5)',
-            }}
-            whileTap={{ scale: 0.98 }}
+            } : {}}
+            whileTap={isRegistrationOpen ? { scale: 0.98 } : {}}
             data-testid="hero-register-btn"
           >
-            Register Now
+            {isRegistrationOpen ? "Register Now" : "Registration Closed"}
           </motion.button>
 
           <motion.button
