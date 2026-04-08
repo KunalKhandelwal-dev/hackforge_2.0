@@ -39,7 +39,7 @@ const socialLinks = [
 
 
 export const Footer = ({ onRegisterClick }) => {
-  const registrationDeadline = new Date('2026-04-08T15:59:59');
+  const registrationDeadline = new Date('2026-04-09T15:59:59');
   const isRegistrationOpen = new Date() < registrationDeadline;
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
