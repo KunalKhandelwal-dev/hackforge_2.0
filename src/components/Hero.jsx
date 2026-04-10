@@ -5,7 +5,7 @@ export const Hero = ({ onRegisterClick }) => {
   const videoRef = useRef(null);
   const [easterEggActive, setEasterEggActive] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-  const registrationDeadline = new Date('2026-04-09T15:59:59');
+  const registrationDeadline = new Date('2026-04-10T13:59:59');
   const isRegistrationOpen = new Date() < registrationDeadline;
   const isScrolling = useRef(false)
 const scrollTimeout = useRef(null)
